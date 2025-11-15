@@ -139,8 +139,8 @@ et_assist.ps1 -Iface "Wi-Fi" -SSID "MyWiFiNetwork"
 
 3.  **Specify a custom IP and MAC address:**
     ```powershell
-    .
-et_assist.ps1 -Iface "Ethernet" -LocalIP "192.168.1.100" -MACAddress "00:11:22:33:44:55"
+        .
+    et_assist.ps1 -Iface "Ethernet" -LocalIP "192.168.1.100" -MACAddress "00:11:22:33:44:55"
     ```
 
 
