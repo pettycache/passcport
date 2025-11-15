@@ -1,15 +1,17 @@
-# Network Assistant Tool
+# PassCPort
 
-A utility for network configuration and troubleshooting on Linux and macOS systems. This tool helps in analyzing network environments, identifying active hosts, and configuring network interfaces with specific IP and MAC addresses.
+A utility for network configuration and troubleshooting on Linux, macOS, and Windows systems. This tool helps in analyzing network environments, identifying active hosts, and configuring network interfaces with specific IP and MAC addresses, primarily for bypassing captive portals or similar network challenges.
 
 ## Features
 
 -   **Network Scanning:** Discover active hosts within a specified network range.
 -   **Network Configuration:** Configure network interfaces with custom IP and MAC addresses.
--   **OS Compatibility:** Supports both Linux and macOS.
+-   **OS Compatibility:** Supports Linux, macOS (via `net_assist.sh`), and Windows (via `net_assist.ps1`).
 -   **Logging:** Detailed logging for troubleshooting and debugging.
 
 ## Prerequisites
+
+### For Linux and macOS (`net_assist.sh`)
 
 This script requires the following tools to be installed on your system:
 
@@ -17,51 +19,50 @@ This script requires the following tools to be installed on your system:
 -   `nmap`: A network scanner.
 -   `macchanger`: (Linux only) A utility for viewing/modifying MAC addresses.
 
-### Installation of Prerequisites
+#### Installation of Prerequisites (Linux/macOS)
 
-#### Debian/Ubuntu (Linux)
+##### Debian/Ubuntu (Linux)
 
 ```bash
 sudo apt update
 sudo apt install sipcalc nmap macchanger
 ```
 
-#### Fedora/RHEL (Linux)
+##### Fedora/RHEL (Linux)
 
 ```bash
 sudo dnf install sipcalc nmap macchanger
 ```
 
-#### Arch Linux (Linux)
+##### Arch Linux (Linux)
 
 ```bash
 sudo pacman -S sipcalc nmap macchanger
 ```
 
-#### macOS
+##### macOS
 
 ```bash
 brew install sipcalc nmap
 # macchanger is not available for macOS via Homebrew. MAC address changes on macOS are typically done via ifconfig or network settings.
 ```
 
-#### Windows
+### For Windows (`net_assist.ps1`)
 
-The `net_assist.sh` script is a bash script and is not natively executable on Windows. To run it on Windows, you have a few options:
+This script requires the following:
 
-1.  **Windows Subsystem for Linux (WSL):**
-    *   Install WSL and a Linux distribution (e.g., Ubuntu) from the Microsoft Store.
-    *   Once WSL is set up, you can run the script within the Linux environment.
-    *   Follow the Linux prerequisite installation steps within your WSL distribution.
+-   **PowerShell 5.1 or newer:** Included by default in modern Windows versions.
+-   **Nmap:** A network scanner.
 
-2.  **Git Bash:**
-    *   Install Git for Windows, which includes Git Bash.
-    *   Git Bash provides a Unix-like command-line environment where you can execute bash scripts.
-    *   You may need to manually install `sipcalc` and `nmap` for Windows, or use their WSL versions. `macchanger` is generally not available for Git Bash.
+#### Installation of Prerequisites (Windows)
 
-**Note:** For full functionality, especially involving MAC address changes and advanced network configurations, running the script in a native Linux environment or WSL is recommended. A native Windows (PowerShell) version or a compiled executable is not currently available but may be considered for future development.
+1.  **Nmap:**
+    *   Download the Nmap installer from the official website: [https://nmap.org/download.html](https://nmap.org/download.html)
+    *   Run the installer and follow the prompts. Ensure Nmap is added to your system's PATH during installation.
 
 ## Usage
+
+### For Linux and macOS (`net_assist.sh`)
 
 The `net_assist.sh` script can be run with various parameters to customize its behavior.
 
@@ -69,7 +70,26 @@ The `net_assist.sh` script can be run with various parameters to customize its b
 sudo ./net_assist.sh [parameters]
 ```
 
-### Parameters
+### For Windows (`net_assist.ps1`)
+
+The `net_assist.ps1` script can be run from PowerShell with administrator privileges.
+
+**First-time setup (if needed):** You might need to adjust PowerShell's execution policy to allow scripts to run. Open PowerShell as Administrator and run:
+
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+Confirm with 'Y' when prompted.
+
+**Running the script:**
+
+Open PowerShell as Administrator, navigate to the script's directory, and run:
+
+```powershell
+.\net_assist.ps1 [parameters]
+```
+
+### Parameters (Common to both scripts)
 
 -   `-h`, `--help`: Show the help menu.
 -   `-d`, `--debug`: Enable debug logging.
@@ -86,6 +106,8 @@ sudo ./net_assist.sh [parameters]
 
 ### Examples
 
+#### Linux/macOS Examples
+
 1.  **Run with debug mode enabled:**
     ```bash
     sudo ./net_assist.sh --debug
@@ -99,6 +121,26 @@ sudo ./net_assist.sh [parameters]
 3.  **Specify a custom IP and MAC address:**
     ```bash
     sudo ./net_assist.sh -i eth0 -p 192.168.1.100 -a 00:11:22:33:44:55
+    ```
+
+#### Windows Examples
+
+1.  **Run with debug mode enabled:**
+    ```powershell
+    .
+et_assist.ps1 -Debug
+    ```
+
+2.  **Specify network interface and SSID:**
+    ```powershell
+    .
+et_assist.ps1 -Iface "Wi-Fi" -SSID "MyWiFiNetwork"
+    ```
+
+3.  **Specify a custom IP and MAC address:**
+    ```powershell
+    .
+et_assist.ps1 -Iface "Ethernet" -LocalIP "192.168.1.100" -MACAddress "00:11:22:33:44:55"
     ```
 
 ## License
