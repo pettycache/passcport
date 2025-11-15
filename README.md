@@ -142,6 +142,8 @@ et_assist.ps1 -Iface "Wi-Fi" -SSID "MyWiFiNetwork"
     .
 et_assist.ps1 -Iface "Ethernet" -LocalIP "192.168.1.100" -MACAddress "00:11:22:33:44:55"
     ```
+
+
 ## Disclaimer & License
 
 ### Disclaimer
