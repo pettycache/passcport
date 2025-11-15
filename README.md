@@ -1,6 +1,6 @@
 # PassCPort
 
-A utility for network configuration and troubleshooting on Linux, macOS, and Windows systems. This tool helps in analyzing network environments, identifying active hosts, and configuring network interfaces with specific IP and MAC addresses, primarily for bypassing captive portals or similar network challenges.
+A utility for network configuration and troubleshooting on Linux, macOS, and Windows systems. This tool helps in analyzing network environments, identifying active hosts, and configuring network interfaces with specific IP and MAC addresses, primarily for bypassing captive portals or similar network challenges. But its main use case is to bypass captive portals for public internet in hotels, airports, businesses, etc. 
 
 ## Features
 
@@ -142,7 +142,20 @@ et_assist.ps1 -Iface "Wi-Fi" -SSID "MyWiFiNetwork"
     .
 et_assist.ps1 -Iface "Ethernet" -LocalIP "192.168.1.100" -MACAddress "00:11:22:33:44:55"
     ```
+## Disclaimer & License
 
-## License
+### Disclaimer
+
+PassCPort is an open-source project designed to assist cybersecurity professionals in conducting authorized wireless network assessments. This software is intended for legitimate use only, such as authorized penetration testing and/or nonprofit educational purposes. It should only be used on networks that you own or have explicit written permission from the owner to test.
+
+Misuse of this software for illegal activities, including unauthorized network intrusion, hacking, or any activity that violates applicable laws, is strictly prohibited. The author(s), contributors, and any affiliated party assume no responsibility or liability for any damage, misuse, or legal consequences arising from the use of this software. By using airgeddon, you agree to indemnify and hold harmless the project contributors from any claims or legal action.
+
+It is the user's sole responsibility to ensure compliance with all applicable local, state, national, and international laws. If you are unsure about your legal rights to use this software, you should consult with an attorney before proceeding.
+
+This software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, or non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
+
+Use this software at your own risk.
+
+### License
 
 This project is licensed under the [LICENSE](LICENSE) file.
