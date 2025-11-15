@@ -45,6 +45,22 @@ brew install sipcalc nmap
 # macchanger is not available for macOS via Homebrew. MAC address changes on macOS are typically done via ifconfig or network settings.
 ```
 
+#### Windows
+
+The `net_assist.sh` script is a bash script and is not natively executable on Windows. To run it on Windows, you have a few options:
+
+1.  **Windows Subsystem for Linux (WSL):**
+    *   Install WSL and a Linux distribution (e.g., Ubuntu) from the Microsoft Store.
+    *   Once WSL is set up, you can run the script within the Linux environment.
+    *   Follow the Linux prerequisite installation steps within your WSL distribution.
+
+2.  **Git Bash:**
+    *   Install Git for Windows, which includes Git Bash.
+    *   Git Bash provides a Unix-like command-line environment where you can execute bash scripts.
+    *   You may need to manually install `sipcalc` and `nmap` for Windows, or use their WSL versions. `macchanger` is generally not available for Git Bash.
+
+**Note:** For full functionality, especially involving MAC address changes and advanced network configurations, running the script in a native Linux environment or WSL is recommended. A native Windows (PowerShell) version or a compiled executable is not currently available but may be considered for future development.
+
 ## Usage
 
 The `net_assist.sh` script can be run with various parameters to customize its behavior.
